@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.genric.edit import CreateView
+from .models import blog
 
-# Create your views here.
+class PostCreateView(CreateView):
+    model = Post
+    fields = “__all__”
+    success_url  = reverse_lazy(“blog:all”)
